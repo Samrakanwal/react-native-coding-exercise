@@ -17,6 +17,7 @@
     "@expo/vector-icons": "^13.0.0",
     "@react-navigation/native": "^6.0.2",
     "@reduxjs/toolkit": "^1.9.7",
+    "@apollo/client": "^3.9.7",
     "expo": "~49.0.15",
     "expo-blur": "~12.4.1",
     "expo-font": "~11.4.0",

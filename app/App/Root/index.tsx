@@ -2,13 +2,20 @@ import { StyleSheet, Text, Button } from "react-native";
 import { useDispatch } from "react-redux";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
+import React from 'react';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 
-export default function Root() {
-  const dispatch = useDispatch();
+// Initialize Apollo Client
+const client = new ApolloClient({
+  uri: 'https://main--spacex-l4uc6p.apollographos.net/graphql',
+  cache: new InMemoryCache()
+});
 
+const Root: React.FC = () => {
   return (
-    <SafeAreaView>
+    <ApolloProvider client={client}>
+     <SafeAreaView>
       <Text>Root Screen</Text>
       <Button 
         title={"Go to Ticket Screen"} 
@@ -16,8 +23,8 @@ export default function Root() {
           router.push("/App/Ticket")
       }/>
     </SafeAreaView>
+    </ApolloProvider>
   );
-
 }
 
-const styles = StyleSheet.create({ });
+export default Root;
